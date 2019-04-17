@@ -14,7 +14,8 @@ let T = new Twit({
   access_token_secret: config['ACCESS_TOKEN_SECRET']
 });
 
-let teamJokowi, teamPrabowo = 0
+let teamJokowi = 0;
+let teamPrabowo = 0;
 
 let jkwStream = T.stream('statuses/filter', { track: '#JokoWinElection'} );
 
