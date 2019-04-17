@@ -21,50 +21,26 @@ let jokowi = 0;
 let prabowo = 0;
 let pemilu = 0;
 
-setTimeout(() => {
-  let jkwStream = T.stream('statuses/filter', { track: '#JokoWinElection'} );
+let jkwStream = T.stream('statuses/filter', { track: '#JokoWinElection'} );
 
-  jkwStream.on('tweet', (tweet) => {
-    teamJokowi = teamJokowi + 1
-    console.log(`${new Date()}: JKW ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
-  });
-}, 5000);
+jkwStream.on('tweet', (tweet) => {
+  teamJokowi = teamJokowi + 1
+  console.log(`${new Date()}: JKW ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
+})
 
-setTimeout(() => {
-  let prbStream = T.stream('statuses/filter', { track: '#TheVictoryOfPrabowo'} );
+let prbStream = T.stream('statuses/filter', { track: '#TheVictoryOfPrabowo'} );
 
-  prbStream.on('tweet', (tweet) => {
-    teamPrabowo = teamPrabowo + 1
-    console.log(`${new Date()}: PRB ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
-  });
-}, 10000);
+prbStream.on('tweet', (tweet) => {
+  teamPrabowo = teamPrabowo + 1
+  console.log(`${new Date()}: PRB ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
+})
 
-setTimeout(() => {
-  let jokowiStream = T.stream('statuses/filter', { track: 'jokowi'} );
+let pemiluStream = T.stream('statuses/filter', { track: '#Pemilu2019'} );
 
-  jokowiStream.on('tweet', (tweet) => {
-    jokowi = jokowi + 1
-    console.log(`${new Date()}: JKW ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
-  });
-}, 15000);
-
-setTimeout(() => {
-  let prabowoStream = T.stream('statuses/filter', { track: 'prabowo'} );
-
-  prabowoStream.on('tweet', (tweet) => {
-    prabowo = prabowo + 1
-    console.log(`${new Date()}: PRB ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
-  });
-}, 15000);
-
-setTimeout(() => {
-  let pemiluStream = T.stream('statuses/filter', { track: '#Pemilu2019'} );
-
-  pemiluStream.on('tweet', (tweet) => {
-    pemilu = pemilu + 1
-    console.log(`${new Date()}: PEMILU ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
-  });
-}, 15000);
+pemiluStream.on('tweet', (tweet) => {
+  pemilu = pemilu + 1
+  console.log(`${new Date()}: PEMILU ${tweet.user.screen_name}(${tweet.user.id}) ${tweet.text} (${tweet.retweet_count}/${tweet.favorite_count})`)
+})
 
 setInterval(() => {
   metrics.gauge(`stream.teamJkw`, teamJokowi);
