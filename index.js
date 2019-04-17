@@ -5,7 +5,7 @@ const metrics = require('datadog-metrics');
 let raw = fs.readFileSync('./config.json');
 let config = JSON.parse(raw);
 
-metrics.init({ host: name, prefix: 'onetap_v2.', appKey: config['appKey'], apiKey: config['apiKey'] });
+metrics.init({ host: 'onetap', prefix: 'onetap_v2.', appKey: config['appKey'], apiKey: config['apiKey'] });
 
 let T = new Twit({
   consumer_key: config['CONSUMER_KEY'],
