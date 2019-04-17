@@ -1,0 +1,14 @@
+{
+  "name": "jokowi-vs-prabowo-stream",
+  "version": "1.0.0",
+  "description": "twitter filtered stream for jokowi vs prabowo",
+  "main": "index.js",
+  "repository": "https://github.com/morpig/jokowi-vs-prabowo-stream.git",
+  "author": "Dito W <morpig2@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "datadog-metrics": "^0.8.1",
+    "twit": "^2.2.11",
+    "twit-core": "^1.0.4"
+  }
+}
