@@ -35,4 +35,4 @@ setInterval(() => {
   metrics.gauge(`stream.prb`, teamPrabowo);
   teamJokowi = 0;
   teamPrabowo = 0;
-}, 300000) //every 5 minutes report to datadog
+}, 120000) //every 5 minutes report to datadog
